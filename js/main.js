@@ -2,6 +2,24 @@
 let humanScore = 0;
 let computerScore = 0;
 
+// Game loop's logic
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+    
+        playRound(humanSelection, computerSelection);
+    }
+
+    if (humanScore === computerScore) {
+        console.log("GAME OVER: The game is a tie!");
+    } else if (humanScore > computerScore) {
+        console.log("GAME OVER: The player win the game!");
+    } else {
+        console.log("GAME OVER: The computer win the game!");
+    }
+}
+
 // Round's logic
 function playRound(humanChoice, computerChoice) {
     console.log('Player picked: ', humanChoice);
@@ -49,7 +67,4 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+playGame();
